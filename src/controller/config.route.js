@@ -9,7 +9,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/home', {
             templateUrl : 'orders/home.html',
-            controller : 'requestOrderController'
+            controller : 'homeContoller'
         })
         .when('/directory', {
             templateUrl : 'orders/directory.html',
@@ -17,31 +17,34 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/email', {
             templateUrl : 'orders/email.html',
-            controller : 'emailController'
+            controller : 'messageController'
         })
         .when('/requestList', {
             templateUrl : 'orders/requestList.html',
-            controller : 'emailController'
+            controller : 'requestOrderController'
         })
         .when('/orderList', {
             templateUrl : 'orders/orderList.html',
-            controller : 'emailController'
+            controller : 'orderController'
         })
         .when('/rejectList', {
             templateUrl : 'orders/rejectList.html',
-            controller : 'emailController'
+            controller : 'rejectOrderController'
         })
         .when('/diliverList', {
             templateUrl : 'orders/diliverList.html',
-            controller : 'emailController'
+            controller : 'deliverOrderController'
         })
         .when('/messages', {
             templateUrl : 'orders/messages.html',
-            controller : 'emailController'
+            controller : 'messageController'
+        })
+        .when('/vendors', {
+            templateUrl : 'orders/vendors.html',
+            controller : 'vendorController'
         })
         .otherwise({
-        redirectTo : '/home',
-        controller : 'orderController'
+        redirectTo : '/home'
     });
 }]);
 
