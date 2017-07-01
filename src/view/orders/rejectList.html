@@ -10,7 +10,7 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" ><a href="#!orderList">Orders</a></li>
                 <li role="presentation"><a href="#!requestList">Requested</a></li>
-                <li role="presentation"><a href="#!diliverList">Delivered</a></li>
+                <li role="presentation"><a href="#!diliverList">Deliveries</a></li>
                 <li role="presentation" class="active"><a href="#!rejectList/">Rejects</a></li>
             </ul>
             <div class="box-content">
@@ -25,85 +25,26 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Dennis Ji</td>
-                        <td class="center">2012/01/01</td>
-                        <td class="center">Member</td>
+
+                    <tr ng-repeat="rejects in reject">
+                        <td>{{rejects.rejectId}}</td>
+                        <td class="center">{{orderId.orderId}}</td>
+                        <td class="center">{{rejects.quantity}}</td>
                         <td class="center">
-                            <span class="label label-success">Active</span>
+                            <span class="label label-success">{{rejects.reason}}</span>
                         </td>
                         <td class="center">
                             <a class="btn btn-success" href="#">
-                                <i class="halflings-icon white zoom-in"></i>
+                               Re order
                             </a>
-                            <a class="btn btn-info" href="#">
-                                <i class="halflings-icon white edit"></i>
-                            </a>
+
                             <a class="btn btn-danger" href="#">
-                                <i class="halflings-icon white trash"></i>
+                                Delete
                             </a>
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>Dennis Ji</td>
-                        <td class="center">2012/02/01</td>
-                        <td class="center">Staff</td>
-                        <td class="center">
-                            <span class="label label-important">Banned</span>
-                        </td>
-                        <td class="center">
-                            <a class="btn btn-success" href="#">
-                                <i class="halflings-icon white zoom-in"></i>
-                            </a>
-                            <a class="btn btn-info" href="#">
-                                <i class="halflings-icon white edit"></i>
-                            </a>
-                            <a class="btn btn-danger" href="#">
-                                <i class="halflings-icon white trash"></i>
-                            </a>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>Dennis Ji</td>
-                        <td class="center">2012/03/01</td>
-                        <td class="center">Member</td>
-                        <td class="center">
-                            <span class="label label-warning">Pending</span>
-                        </td>
-                        <td class="center">
-                            <a class="btn btn-success" href="#">
-                                <i class="halflings-icon white zoom-in"></i>
-                            </a>
-                            <a class="btn btn-info" href="#">
-                                <i class="halflings-icon white edit"></i>
-                            </a>
-                            <a class="btn btn-danger" href="#">
-                                <i class="halflings-icon white trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Dennis Ji</td>
-                        <td class="center">2012/06/01</td>
-                        <td class="center">Admin</td>
-                        <td class="center">
-                            <span class="label">Inactive</span>
-                        </td>
-                        <td class="center">
-                            <a class="btn btn-success" href="#">
-                                <i class="halflings-icon white zoom-in"></i>
-                            </a>
-                            <a class="btn btn-info" href="#">
-                                <i class="halflings-icon white edit"></i>
-                            </a>
-                            <a class="btn btn-danger" href="#">
-                                <i class="halflings-icon white trash"></i>
-                            </a>
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

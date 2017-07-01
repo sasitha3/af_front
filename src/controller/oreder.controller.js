@@ -7,8 +7,26 @@
 
 console.log('working')
 
-myApp.controller('orderController',function($scope, $http){
+myApp.controller('orderController',function($scope, $http, $window, $rootScope){
     console.log("working");
+    // $scope.order = "order1";
+    $http.get("http://localhost:4000/api/orders/")
+        .then(function(response) {
+            console.log(response);
+            $scope.order = response.data;
+        });
+
+    $scope.sendMessage = function () {
+        // $scope.orderList = 'ok';
+        console.log('works');
+        //$rootScope.orders = $scope.order.order_id;
+        console.log('is this ' +  $scope.orderList);
+        $window.location.href = '#!/messages';
+    }
+
+
+
+
     $scope.removePlayer = function (ind) {
         var removePlaye = $scope.arr.indexOf(ind);
         $scope.arr.splice(removePlaye, 1);
@@ -34,7 +52,6 @@ myApp.controller('orderController',function($scope, $http){
             $scope.arr = response.data;
             console.log(response.config.headers)
         });
-
 
 });
 console.log("Premadasa ");

@@ -1,7 +1,6 @@
 <div class="container-fluid-full">
     <div class="row-fluid">
 
-
         <!-- start: Content -->
         <div id="content" class="span10">
             <div class="page-header">
@@ -10,79 +9,50 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#!orderList">Orders</a></li>
                 <li role="presentation"><a href="#!requestList">Requested</a></li>
-                <li role="presentation"><a href="#!diliverList">Delivered</a></li>
+                <li role="presentation"><a href="#!diliverList">Deliveries</a></li>
                 <li role="presentation"><a href="#!rejectList/">Rejects</a></li>
-
             </ul>
 
             <div class="box-content">
+                <form  ng-submit="sendMessage()">
                 <div class="form-group" >
-                    <form class="form-horizontal">
-                        <input class="form-control" id="vendor" type="text"  placeholder="vendor" >
+
+                        <div class="form-horizontal">
+                        <input class="form-control" id="vendor" type="text"  placeholder="vendor email" >
                         <button class="btn btn-primary"  >Place Order</button>
-                    </form>
+                </div>
+
                 </div>
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                     <thead>
                     <tr>
                         <th>Order ID</th>
-                        <th>Drug ID</th>
+                        <th>Drug Name</th>
                         <th>Quantity</th>
                         <th>Status</th>
                         <th>Select Order</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>ODR1101</td>
-                        <td class="center">2012/01/01</td>
-                        <td class="center">5 bottles</td>
+                    <tbody ng-model="orderList">
+                    <tr ng-repeat=" orders in order | orderBy:'-' " >
+                        <td >{{orders.orderId}}</td>
+                        <td class="center" >{{orders.drugId}}</td>
+                        <td class="center">{{orders.quantity}}</td>
                         <td class="center">
-                            <span class="label label-success">New</span>
-                        </td>
-                        <td class="center">
-                           <input type="checkbox">
-                        </td>
-                    </tr>
+                            <span class="label label-{{orders.status === 'New' ? 'success' : orders.status === 'reject' ? 'important' : orders.status === 'processing' ? 'warning' : ''}}">{{orders.status}}</span>
 
-                    <tr>
-                        <td>ODR1102</td>
-                        <td class="center">2012/02/01</td>
-                        <td class="center">234 packets</td>
-                        <td class="center">
-                            <span class="label label-important">Reject</span>
                         </td>
                         <td class="center">
-                            <input type="checkbox">
+                           <input type="checkbox" />
                         </td>
                     </tr>
+                            <!--<span class="label label-important">Reject</span>-->
+                            <!--<span class="label label-warning">Processing</span>-->
 
-                    <tr>
-                        <td>ODR1103</td>
-                        <td class="center">2012/03/01</td>
-                        <td class="center">124 pills</td>
-                        <td class="center">
-                            <span class="label label-warning">Processing</span>
-                        </td>
-                        <td class="center">
-                            <input type="checkbox">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>ODR1104</td>
-                        <td class="center">2012/06/01</td>
-                        <td class="center">2 leters</td>
-                        <td class="center">
-                            <span class="label">Aught</span>
-                        </td>
-                        <td class="center">
-                            <input type="checkbox">
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
             </div>
+            </form>
         </div>
     </div>
 
