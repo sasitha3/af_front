@@ -24,6 +24,10 @@
     <script src="../controller/message.order.controller.js"></script>
     <script src="../controller/reject.order.controller.js"></script>
     <script src="../controller/vendor.order.controller.js"></script>
+    <script src="../controller/requests.controller.js"></script>
+    <script src="../controller/reports.controller.js"></script>
+    <script src="../controller/drugBatch.controller.js"></script>
+    <script src="../controller/requestManage.controller.js"></script>
 
     <!--end : controller-->
 
@@ -49,7 +53,6 @@
     <link id="ie9style" href="../../css/ie9.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="../../img/favicon.png">
-
 
 
 
@@ -170,7 +173,22 @@
                         </ul>
                     </li>
 
-                    <li><a href="!#"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
+                    <li>
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
+                                class="hidden-tablet"> Stock </span><span
+                                class="label label-important"> > </span></a>
+                        <ul>
+                            <li><a class="submenu" href="#!/request"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Request Drugs </span></a></li>
+                            <li><a class="submenu" href="#!/drugBatch"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Add Drug Batch </span></a></li>
+                            <li><a class="submenu" href="#!/reports"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Reports </span></a></li>
+                            <li><a class="submenu" href="#!/requestManage"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Manage Requests </span></a></li>
+
+                        </ul>
+                    </li>
 
                     <li><a href="!#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a>
                     </li>
@@ -222,6 +240,8 @@
 </footer>
 
 <!-- start: JavaScript-->
+
+<script src="print.js"></script>
 
 <script src="../../js/jquery-1.9.1.min.js"></script>
 <script src="../../js/jquery-migrate-1.0.0.min.js"></script>
