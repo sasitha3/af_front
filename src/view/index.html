@@ -12,12 +12,11 @@
     <!-- Start:Angular -->
     <script src="../../lib/angular.min.js"></script>
     <script src="../../lib/angular-route.min.js"></script>
-    <script src="../../lib/angular-cookies.min.js"></script>
     <!-- end: Angular -->
+
 
     <!--start : controller-->
     <script src="../controller/config.route.js"></script>
-    <script src="../controller/DrugManage.js"></script>
     <script src="../controller/oreder.controller.js"></script>
     <script src="../controller/request.order.controller.js"></script>
     <script src="../controller/deliver.order.controller.js"></script>
@@ -26,6 +25,10 @@
     <script src="../controller/reject.order.controller.js"></script>
     <script src="../controller/vendor.order.controller.js"></script>
     <script src="../controller/index.controller.js"></script>
+    <script src="../controller/requests.controller.js"></script>
+    <script src="../controller/reports.controller.js"></script>
+    <script src="../controller/drugBatch.controller.js"></script>
+    <script src="../controller/requestManage.controller.js"></script>
 
 
     <!--end : controller-->
@@ -36,13 +39,16 @@
     <!-- end: Mobile Specific -->
 
     <!-- start: CSS -->
-    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link id="bootstrap-style" href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
     <link id="base-style" href="../../css/style.css" rel="stylesheet">
     <link id="base-style-responsive" href="../../css/style-responsive.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext'
           rel='stylesheet' type='text/css'>
     <!-- end: CSS -->
+
+
+
 
     <link id="ie-style" href="../../css/ie.css" rel="stylesheet">
 
@@ -54,7 +60,7 @@
 
 </head>
 
-<body ng-controller="themeContoller">
+<body>
 
 <div class="navbar">
     <div class="navbar-inner">
@@ -65,13 +71,46 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#!/home"><span>PHARAMCY </span></a>
+            <a class="brand" href="#!/home"><span>PHARAMCY</span></a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">
                 <ul class="nav pull-right">
 
 
+                    <!-- start: Message Dropdown -->
+                    <li class="dropdown hidden-phone">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="halflings-icon white envelope"></i>
+                        </a>
+                        <ul class="dropdown-menu messages">
+                            <li class="dropdown-menu-title">
+                                <span>You have 9 messages</span>
+                                <a href="#refresh"><i class="icon-repeat"></i></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="avatar"><img src="../../img/avatar.jpg" alt="Avatar"></span>
+                                    <span class="header">
+											<span class="from">
+										    	Dennis Ji
+										     </span>
+											<span class="time">
+										    	6 min
+										    </span>
+										</span>
+                                    <span class="message">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                        </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#!/email" class="dropdown-menu-sub-footer">View all messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end: Message Dropdown -->
                     <li>
                         <a class="btn" href="#">
                             <i class="halflings-icon white wrench"></i>
@@ -80,15 +119,15 @@
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="halflings-icon white user"></i>{{userName}}
+                            <i class="halflings-icon white user"></i> Dennis Ji
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-menu-title">
                                 <span>Account Settings</span>
                             </li>
-
-                            <li><button ng-click="logout()"><i class="halflings-icon off"></i> Logout</button></li>
+                            <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+                            <li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->
@@ -136,7 +175,22 @@
                         </ul>
                     </li>
 
-                    <li><a href="!#"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
+                    <li>
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span
+                                class="hidden-tablet"> Stock </span><span
+                                class="label label-important"> > </span></a>
+                        <ul>
+                            <li><a class="submenu" href="#!/request"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Request Drugs </span></a></li>
+                            <li><a class="submenu" href="#!/drugBatch"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Add Drug Batch </span></a></li>
+                            <li><a class="submenu" href="#!/reports"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Reports </span></a></li>
+                            <li><a class="submenu" href="#!/requestManage"><i class="icon-file-alt"></i><span
+                                    class="hidden-tablet"> Manage Requests </span></a></li>
+
+                        </ul>
+                    </li>
 
                     <li><a href="!#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a>
                     </li>
@@ -169,7 +223,7 @@
 
         </div>
 
-        <main style="height:716px;" ng-view></main>
+        <main ng-view></main>
 
     </div><!--/#content.span10-->
 
@@ -188,6 +242,8 @@
 </footer>
 
 <!-- start: JavaScript-->
+
+<script src="print.js"></script>
 
 <script src="../../js/jquery-1.9.1.min.js"></script>
 

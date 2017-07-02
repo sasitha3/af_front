@@ -21,13 +21,9 @@
                 <input ng-model="seachBox"  placeholder="    ........  Search Here ......." style="border:2px solid #111;height: 22px;margin-left: 73%;" type="text" class="form-control" aria-label="...">
             </div>
             <div class="col-lg-4" >
+
                 <div class="col-lg-6">
-                    <button style="margin-left:87%;height:33px;" class="btn btn-danger"  class="quick-button-small span1">
-                        <p style="height: 22px;"><i class="icon-book"></i>     Reports</p>
-                    </button>
-                </div>
-                <div class="col-lg-6">
-                    <button type="button" data-toggle="modal" data-target="#MyDrugModal" style="margin-left:142%;height:33px;margin-top: -56px;" class="btn btn-primary"  class="quick-button-small span1">
+                    <button type="button" data-toggle="modal" data-target="#MyDrugModal" style="margin-left:142%;height:33px;margin-top: 3px;" class="btn btn-primary"  class="quick-button-small span1">
                         <p style="height: 22px;"><i class="icon-cogs"></i> Customize</p>
                     </button>
                 </div>
@@ -164,7 +160,7 @@
 
                     <select    required ng-model="value.dtype" style="color:#999;height:31px;width:105px;border: 2px solid #eeeeee;margin-top:15px;" class="form-control" >
                         <option disabled selected>Drug Type</option>
-                        <option disabled selected>{{value.dtype}}</option>
+                        <option value="" disabled selected>Drug Type </option>
                         <option ng-repeat="type in typlist" >{{type.typvalue}}</option>
                     </select>
                 </td>

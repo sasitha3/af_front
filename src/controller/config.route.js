@@ -1,7 +1,7 @@
 /**
  * Created by PAVANI on 5/21/2017.
  */
-var myApp = angular.module('myApp', ['ngRoute','ngCookies']);
+var myApp = angular.module('myApp', ['ngRoute']);
 console.log("Sasitha ");
 
 myApp.config(['$routeProvider', function ($routeProvider) {
@@ -21,7 +21,6 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl : 'orders/email.html',
             controller : 'messageController'
         })
-        //
         .when('/requestList', {
             templateUrl : 'orders/requestList.html',
             controller : 'requestOrderController'
@@ -50,6 +49,22 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         when('/drugManage', {
             templateUrl : 'DrugManage/DrugManage.html',
             controller : 'drugmanage'
+        })
+        .when('/request', {
+            templateUrl : 'stock/request.html',
+            controller : 'requestsController'
+        })
+        .when('/drugBatch', {
+            templateUrl : 'stock/drugBatch.html',
+            controller : 'drugBatchController'
+        })
+        .when('/reports', {
+            templateUrl : 'stock/reports.html',
+            controller : 'reportsController'
+        })
+        .when('/requestManage', {
+            templateUrl : 'stock/requestManage.html',
+            controller : 'requestManageController'
         })
 
 
