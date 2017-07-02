@@ -1,0 +1,45 @@
+<div>
+
+    <div ng-controller="requestManageController" id="content" class="span10">
+
+        <h1><strong>Manage Drug Request</strong></h1><br>
+
+        <table class="table table-striped table-bordered bootstrap-datatable datatable">
+            <thead>
+            <tr>
+
+                <th>Drug Name</th>
+                <th>Drug Category</th>
+                <th>Drug Type</th>
+                <th>Request Quantity</th>
+                <th>Date</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Delete</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="drug in requests">
+
+                <td>{{drug.drugName}}</td>
+                <td>{{drug.drugCategory}}</td>
+                <td>{{drug.drugType}}</td>
+                <td>{{drug.requestQuantity}}</td>
+                <td>{{drug.date}}</td>
+                <td>{{drug.department}}</td>
+                <td>{{drug.status}}</td>
+                <td><button style="width:90px;" class="btn btn-primary" ng-click="deleteRequest(drug._id)">Delete Request</button></td>
+            </tr>
+
+
+
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+    <!-- end: Content -->
+</div>
