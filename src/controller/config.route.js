@@ -7,13 +7,15 @@ console.log("Sasitha ");
 myApp.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider.
-        when('/home', {
+
+    when('/', {
+        templateUrl : 'Default.html',
+        controller : 'homeContoller'
+    })
+
+        .when('/home', {
             templateUrl : 'orders/home.html',
             controller : 'homeContoller'
-        })
-        .when('/directory', {
-            templateUrl : 'orders/directory.html',
-            controller : 'orderController'
         })
         .when('/email', {
             templateUrl : 'orders/email.html',
@@ -25,7 +27,8 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         })
         .when('/orderList', {
             templateUrl : 'orders/orderList.html',
-            controller : 'orderController'
+            controller : 'orderController',
+            activetab :"orders"
         })
         .when('/rejectList', {
             templateUrl : 'orders/rejectList.html',
@@ -42,6 +45,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         .when('/vendors', {
             templateUrl : 'orders/vendors.html',
             controller : 'vendorController'
+        }).
+        when('/drugManage', {
+            templateUrl : 'DrugManage/DrugManage.html',
+            controller : 'drugmanage'
         })
         .when('/request', {
             templateUrl : 'stock/request.html',
@@ -60,8 +67,9 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             controller : 'requestManageController'
         })
 
+
         .otherwise({
-        redirectTo : '/home'
+        redirectTo : '/'
     });
 }]);
 

@@ -24,10 +24,12 @@
     <script src="../controller/message.order.controller.js"></script>
     <script src="../controller/reject.order.controller.js"></script>
     <script src="../controller/vendor.order.controller.js"></script>
+    <script src="../controller/index.controller.js"></script>
     <script src="../controller/requests.controller.js"></script>
     <script src="../controller/reports.controller.js"></script>
     <script src="../controller/drugBatch.controller.js"></script>
     <script src="../controller/requestManage.controller.js"></script>
+
 
     <!--end : controller-->
 
@@ -144,14 +146,14 @@
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
 
-                    <li><a href="#!/home"><i class="icon-bar-chart"></i><span
+                    <li><a class="not-active" href="#!/home"><i class="icon-bar-chart"></i><span
                             class="hidden-tablet"> Dashboard</span></a>
                     </li>
 
-                    <li><a href="#!/email"><i class="icon-envelope"></i><span
+                    <li><a class="not-active" href="#!/email"><i class="icon-envelope"></i><span
                             class="hidden-tablet"> Messages</span></a></li>
 
-                    <li><a href="#!"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a>
+                    <li><a class="not-active" href="#!/drugManage"><i class="icon-tasks"></i><span class="hidden-tablet">DrugManage</span></a>
                     </li>
 
                     <li><a href="#!"><i class="icon-eye-open"></i><span
@@ -165,7 +167,7 @@
                                 class="hidden-tablet"> Orders </span><span
                                 class="label label-important"> > </span></a>
                         <ul>
-                            <li><a class="submenu" href="#!/orderList"><i class="icon-file-alt"></i><span
+                            <li><a ng-class="{'active':$route.current.activetab=='orders'}" class="submenu" href="#!/orderList"><i class="icon-file-alt"></i><span
                                     class="hidden-tablet"> Orders </span></a></li>
                             <li><a class="submenu" href="#!/directory"><i class="icon-file-alt"></i><span
                                     class="hidden-tablet"> Vendors </span></a></li>
@@ -244,6 +246,7 @@
 <script src="print.js"></script>
 
 <script src="../../js/jquery-1.9.1.min.js"></script>
+
 <script src="../../js/jquery-migrate-1.0.0.min.js"></script>
 
 <script src="../../js/jquery-ui-1.10.0.custom.min.js"></script>
@@ -261,9 +264,13 @@
 <script src='../../js/jquery.dataTables.min.js'></script>
 
 <script src="../../js/excanvas.js"></script>
+
 <script src="../../js/jquery.flot.js"></script>
+
 <script src="../../js/jquery.flot.pie.js"></script>
+
 <script src="../../js/jquery.flot.stack.js"></script>
+
 <script src="../../js/jquery.flot.resize.min.js"></script>
 
 <script src="../../js/jquery.chosen.min.js"></script>

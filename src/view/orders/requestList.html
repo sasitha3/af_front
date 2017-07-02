@@ -15,29 +15,32 @@
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <thead>
                 <tr>
-                    <th>Request ID</th>
+
                     <th>Order ID</th>
                     <th>Vendor</th>
                     <th>Date</th>
                     <th>Status</th>
+                    <th>Quantity</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
+
                 <tr ng-repeat="requests in request">
-                    <td>{{requests.requestId}}</td>
-                    <td class="center">{{requests.orderId}}</td>
-                    <td class="center">{{requests.vendor}}</td>
-                    <td class="center">{{requests.requireDate}}</td>
-                    <td class="center">
+
+                    <td>{{requests.orderId}}</td>
+                    <td>{{requests.vendor}}</td>
+                    <td>{{requests.requireDate}}</td>
+                    <td>
                         <span class="label label-success">{{requests.status}}</span>
                     </td>
+                    <td>{{requests.quantity}}</td>
                     <td class="center">
-                        <button class="btn btn-success" >
+                        <button type="button" class="btn btn-info btn-lg"  ng-click="handleOrders(requests)" >
                             Confirm
-                        </button>
+                        </button >
 
-                        <button class="btn btn-danger">
+                        <button class="btn btn-danger" ng-click = "remove()">
                             Remove
                         </button>
                     </td>
@@ -46,6 +49,8 @@
                 </tbody>
             </table>
         </div>
+
+
     </div>
     </div>
 
