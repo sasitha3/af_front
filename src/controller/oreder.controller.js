@@ -1,57 +1,53 @@
 /**
  * Created by PAVANI on 5/18/2017.
  */
-//import orderApp from 'config.contriller';
-//orderApp = require('/config.contriller');
-
-
-console.log('working')
-
 myApp.controller('orderController',function($scope, $http, $window, $rootScope){
     console.log("working");
     // $scope.order = "order1";
-    $http.get("http://localhost:4000/api/orders/")
+    $rootScope.selectedOrders = [];
+    $http.get("http://localhost:4000/api/stock/")
         .then(function(response) {
-            console.log(response);
-            $scope.order = response.data;
-        });
+            var count = 0;
+            $scope.order = {};
+            console.log(response.data.length);
+            //$scope.allOrder = response.data;
+            for (var i=0 ; i<response.data.length; i++){
+                if(response.data[i].status == 'New' || response.data[i].status == 're-order'){
 
-    $scope.sendMessage = function () {
-        // $scope.orderList = 'ok';
-        console.log('works');
-        //$rootScope.orders = $scope.order.order_id;
-        console.log('is this ' +  $scope.orderList);
-        $window.location.href = '#!/messages';
+                    $scope.order[count] = response.data[i];
+                    console.log('fly')
+                    count++;
+                }
+            }
+           });
+
+
+
+    $scope.validateVend = function () {
+        $http.get("http://localhost:4000/api/orders/vendors")
+            .then(function(response) {
+                console.log(response);
+                for(var i = 0; i<response.data.length; i++){
+                    if(response.data[i].email === $scope.vendorEmail){
+
+                        $rootScope.emailAdd = $scope.vendorEmail;
+                        console.log($rootScope.selectedOrders);
+
+                        $window.location.href = '#!/messages';
+                    }else{
+                        alert('Invalid vendor email');
+                        $scope.vendorEmail = "";
+                        $window.location.href = '#!/orderList';
+                    }
+                }
+            });
     }
-
-
-
-
-    $scope.removePlayer = function (ind) {
-        var removePlaye = $scope.arr.indexOf(ind);
-        $scope.arr.splice(removePlaye, 1);
+    $scope.getChecks = function (getOrders) {
+        console.log(getOrders);
+        $rootScope.selectedOrders.push(getOrders);
+        //$scope.ordersToMessage = $scope.ordersToMessage + getOrders;
+        console.log($rootScope.selectedOrders);
     }
-
-    $scope.addPlayer = function () {
-        $scope.arr.push({
-            name : $scope.newplayer.name,
-            belt : $scope.newplayer.belt,
-            rate : parseInt($scope.newplayer.rate),
-            available : true,
-            thumb : '../../img/gallery/photo1.jpg'
-        });
-
-        $scope.newplayer.name = "";
-        $scope.newplayer.belt = "";
-        $scope.newplayer.rate = "";
-    };
-
-    $http.get("test.json")
-        .then(function(response) {
-            console.log(response);
-            $scope.arr = response.data;
-            console.log(response.config.headers)
-        });
 
 });
 console.log("Premadasa ");

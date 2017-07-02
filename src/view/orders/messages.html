@@ -3,16 +3,7 @@
 
         <!-- start: Content -->
         <div id="content" class="span10">
-
-            <ul class="breadcrumb">
-                <li>
-                    <i class="icon-home"></i>
-                    <a href="index.html">Home</a>
-                    <i class="icon-angle-right"></i>
-                </li>
-                <li><a href="#">Messages</a></li>
-            </ul>
-
+\
             <div class="row-fluid">
 
                 <div class="span11 noMarginLeft">
@@ -24,7 +15,6 @@
                             <div class="from"><i class="halflings-icon user"></i> <b>User 1</b> / Email</div>
                             <div class="date"><i class="halflings-icon time"></i> Today, <b>Time</b></div>
 
-
                         </div>
 
                         <div class="content">
@@ -32,20 +22,35 @@
                         </div>
 
                         <div class="attachments">
-                            <ul>
 
-                            </ul>
+                            <table class="table table-striped">
+                                <thead>
+                                <th>Drug Name</th>
+                                <th>Drug Type</th>
+                                <th>Quantity</th>
+                                <th>Date</th>
+                                </thead>
+                                <tr ng-repeat="orders in selectOrders">
+                                    <td>{{orders.drugName}}</td>
+                                    <td>{{orders.drugType}}</td>
+                                    <td>{{orders.requestQuantity}}</td>
+                                    <td>{{orders.date}}</td>
+                                </tr>
+                            </table>
                         </div>
-                        <input type="date" />
-                        <form class="replyForm"method="post" action="">
+                        <label>Email: {{venEmail}}</label>
 
-                                <textarea tabindex="3" class="input-xlarge span12" id="message" name="body" rows="12" placeholder="Click here to reply"></textarea>
+                        <form class="replyForm">
 
-                                <div class="actions">
+                            <textarea tabindex="3" class="input-xlarge span12" id="message" name="body" rows="12"
+                                      placeholder="Click here to message" ng-model="message"></textarea>
 
-                                    <button  ng-submit="sendEmail()" tabindex="3" type="submit" class="btn btn-success">Send message</button>
+                            <div class="actions">
 
-                                </div>
+                                <button ng-click="sendEmail()" class="btn btn-success">Send message</button>
+                                <a href="#!/orderList" class="btn btn-danger">Cancel </a>
+
+                            </div>
                         </form>
 
                     </div>
