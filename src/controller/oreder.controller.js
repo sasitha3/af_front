@@ -7,7 +7,8 @@
 
 console.log('working')
 
-myApp.controller('orderController',function($scope, $http, $window, $rootScope){
+myApp.controller('orderController',function($scope, $http, $window, $rootScope,$route){
+    $rootScope.$route=$route;
     console.log("working");
     // $scope.order = "order1";
     $http.get("http://localhost:4000/api/orders/")
