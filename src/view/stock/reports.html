@@ -1,0 +1,49 @@
+<div>
+
+    <div ng-controller="reportsController" id="content" class="span10">
+
+        <h1><strong>Reports</strong></h1><br>
+
+
+        <table class="table table-striped table-bordered bootstrap-datatable datatable">
+
+
+
+                <thead>
+                <tr>
+
+                    <th>Drug Name</th>
+                    <th>Drug Category</th>
+                    <th>Drug Type</th>
+                    <th>Drug Quantity</th>
+                    <th>Expiry Date</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="drug in report">
+
+                    <td>{{drug.drugName}}</td>
+                    <td>{{drug.drugCategory}}</td>
+                    <td>{{drug.drugType}}</td>
+                    <td>{{drug.quantity}}</td>
+                    <td>{{drug.expiryDate}}</td>
+
+                </tr>
+                <tr>
+                <td><button style="width:200px;" class="btn btn-info" ng-click="printJS({printable: drugBatch, type: 'json', properties: ['drugName', 'drugCategory', 'drugType','quantity']})">Generate Report</button></td>
+                </tr>
+
+
+
+                </tbody>
+
+
+        </table>
+
+    </div>
+
+    <div>
+    </div>
+    <!-- end: Content -->
+</div>
