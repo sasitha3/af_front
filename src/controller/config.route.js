@@ -1,7 +1,7 @@
 /**
  * Created by PAVANI on 5/21/2017.
  */
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute','ngCookies']);
 console.log("Sasitha ");
 
 myApp.config(['$routeProvider', function ($routeProvider) {

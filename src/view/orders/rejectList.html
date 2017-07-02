@@ -17,7 +17,7 @@
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                     <thead>
                     <tr>
-                        <th>Reject ID</th>
+
                         <th>Order ID</th>
                         <th>Quantity</th>
                         <th>Reason</th>
@@ -27,20 +27,20 @@
                     <tbody>
 
                     <tr ng-repeat="rejects in reject">
-                        <td>{{rejects.rejectId}}</td>
-                        <td class="center">{{orderId.orderId}}</td>
+
+                        <td class="center">{{rejects.orderId}}</td>
                         <td class="center">{{rejects.quantity}}</td>
                         <td class="center">
-                            <span class="label label-success">{{rejects.reason}}</span>
+                            {{rejects.reason}}
                         </td>
                         <td class="center">
-                            <a class="btn btn-success" href="#">
+                            <button class="btn btn-success" ng-submit = "reOrder()">
                                Re order
-                            </a>
+                            </button>
 
-                            <a class="btn btn-danger" href="#">
+                            <button class="btn btn-danger" ng-submit = "delete()">
                                 Delete
-                            </a>
+                            </button>
                         </td>
                     </tr>
 
