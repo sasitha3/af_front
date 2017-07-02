@@ -1,0 +1,57 @@
+<div>
+
+    <div ng-controller="drugBatchController" id="content" class="span10">
+
+        <h1><strong>Add New Drug Batch</strong></h1><br>
+
+
+        <table class="table table-striped table-bordered bootstrap-datatable datatable">
+
+            <tr>
+                <td>Drug Name</td>
+                <td><input class="form-control" ng-model="drug.drugName" style="width:200px;"></td>
+            </tr>
+            <tr>
+                <td>Drug Category</td>
+                <td><select name="category" style="width:200px;">
+                    <option selected>-Select Category-</option>
+                    <option>Narcotics</option>
+                    <option>Treatment of injections</option>
+                    <option>Treatment of cardio vascular system</option>
+
+                </select></td>
+            </tr>
+            <tr>
+                <td>Drug Type</td>
+                <td><select name="type" style="width:200px;">
+                    <option selected>-Select Type-</option>
+                    <option>Tablet</option>
+                    <option>Amp</option>
+                    <option>Spray</option>
+
+                </select></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><input class="form-control" style="width:200px;"></td>
+            </tr>
+            <tr>
+                <td>Manufactured Date</td>
+                <td><input type="date" class="form-control" style="width:200px;"></td>
+            </tr>
+            <tr>
+                <td>Expiry Date</td>
+                <td><input type="date" class="form-control" style="width:200px;"></td>
+            </tr>
+            <tr>
+            <td><button style="width:120px;" class="btn btn-info" ng-click="addBatch()">Add Batch</button></td>
+        </tr>
+
+        </table>
+
+    </div>
+
+    <div>
+    </div>
+    <!-- end: Content -->
+</div>
