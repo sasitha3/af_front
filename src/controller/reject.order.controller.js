@@ -1,7 +1,7 @@
 /**
  * Created by PAVANI on 6/28/2017.
  */
-myApp.controller('rejectOrderController',function($scope, $http){
+myApp.controller('rejectOrderController',function($scope, $http, $window){
     $scope.name = "Reject";
     $http.get("http://localhost:4000/api/orders/rejects")
         .then(function(response) {
@@ -20,16 +20,7 @@ myApp.controller('rejectOrderController',function($scope, $http){
 
         });
 
-    var order = {
-        method: 'PUT',
-        url: 'http://localhost:4000/api/orders/{:id}',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        data: {
-            status: ""
-        }
-    };
+
 
     var reject = {
         method: 'PUT',
@@ -41,4 +32,24 @@ myApp.controller('rejectOrderController',function($scope, $http){
             status: ""
         }
     };
+    $scope.reOrder = function (id) {
+        console.log('works');
+        var order = {
+            method: 'PUT',
+            url: 'http://localhost:4000/api/stock/'+id,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: {
+                status: "re-order"
+            }
+
+        };
+        $http(order).then(function(err){
+            //alert('request add');
+
+            console.log('requested');
+            $window.location.href = '#!/orderList';
+        });
+    }
 });

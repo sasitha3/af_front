@@ -33,7 +33,7 @@
                                     {{del.quantity}}
                         </td>
                         <td class="center">
-                            <button class="btn btn-success" ng-click="release()">
+                            <button class="btn btn-success" ng-click="release(del.orderId)">
                                 Release
                             </button>
                             <button class="btn btn-danger" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" ng-click="reject(del)">

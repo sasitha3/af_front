@@ -34,11 +34,11 @@
                             {{rejects.reason}}
                         </td>
                         <td class="center">
-                            <button class="btn btn-success" ng-submit = "reOrder()">
+                            <button class="btn btn-success" ng-click = "reOrder(rejects.orderId)">
                                Re order
                             </button>
 
-                            <button class="btn btn-danger" ng-submit = "delete()">
+                            <button class="btn btn-danger" ng-click = "delete()">
                                 Delete
                             </button>
                         </td>

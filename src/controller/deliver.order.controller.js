@@ -23,22 +23,26 @@ myApp.controller('deliverOrderController',function($scope, $http, $window){
 
         });
 
-    var deliver = {
-        method: 'PUT',
-        url: 'http://localhost:4000/api/orders/messages/{:id}',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        data: { to: "",
-            from: "",
-            messageSubject: "",
-            messageBody: "",
-            drugs: {
-                name: "",
-                requireDate: ""
+    $scope.release = function (id) {
+        console.log('works');
+        var order = {
+            method: 'PUT',
+            url: 'http://localhost:4000/api/stock/'+id,
+            headers: {
+                'Content-Type': 'application/json'
             },
-        }
-    };
+            data: {
+                status: "done"
+            }
+
+        };
+        $http(order).then(function(err){
+            //alert('request add');
+
+            console.log('requested');
+            $window.location.href = '#!/orderList';
+        });
+    }
 
     var order = {
         method: 'PUT',
@@ -62,10 +66,7 @@ myApp.controller('deliverOrderController',function($scope, $http, $window){
         }
     };
 
-    $scope.release = function () {
-        //update of order
-        console.log('order sent to the store');
-    }
+
     $scope.reject = function (deli) {
         $scope.rejects = deli;
         console.log($scope.rejects);
