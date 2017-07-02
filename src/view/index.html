@@ -17,6 +17,7 @@
 
     <!--start : controller-->
     <script src="../controller/config.route.js"></script>
+    <script src="../controller/DrugManage.js"></script>
     <script src="../controller/oreder.controller.js"></script>
     <script src="../controller/request.order.controller.js"></script>
     <script src="../controller/deliver.order.controller.js"></script>
@@ -26,6 +27,7 @@
     <script src="../controller/vendor.order.controller.js"></script>
     <script src="../controller/index.controller.js"></script>
 
+
     <!--end : controller-->
 
     <meta charset="UTF-8">
@@ -34,7 +36,7 @@
     <!-- end: Mobile Specific -->
 
     <!-- start: CSS -->
-    <link id="bootstrap-style" href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
     <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
     <link id="base-style" href="../../css/style.css" rel="stylesheet">
     <link id="base-style-responsive" href="../../css/style-responsive.css" rel="stylesheet">
@@ -105,14 +107,14 @@
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
 
-                    <li><a href="#!/home"><i class="icon-bar-chart"></i><span
+                    <li><a class="not-active" href="#!/home"><i class="icon-bar-chart"></i><span
                             class="hidden-tablet"> Dashboard</span></a>
                     </li>
 
-                    <li><a href="#!/email"><i class="icon-envelope"></i><span
+                    <li><a class="not-active" href="#!/email"><i class="icon-envelope"></i><span
                             class="hidden-tablet"> Messages</span></a></li>
 
-                    <li><a href="#!"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a>
+                    <li><a class="not-active" href="#!/drugManage"><i class="icon-tasks"></i><span class="hidden-tablet">DrugManage</span></a>
                     </li>
 
                     <li><a href="#!"><i class="icon-eye-open"></i><span
@@ -126,7 +128,7 @@
                                 class="hidden-tablet"> Orders </span><span
                                 class="label label-important"> > </span></a>
                         <ul>
-                            <li><a class="submenu" href="#!/orderList"><i class="icon-file-alt"></i><span
+                            <li><a ng-class="{'active':$route.current.activetab=='orders'}" class="submenu" href="#!/orderList"><i class="icon-file-alt"></i><span
                                     class="hidden-tablet"> Orders </span></a></li>
                             <li><a class="submenu" href="#!/directory"><i class="icon-file-alt"></i><span
                                     class="hidden-tablet"> Vendors </span></a></li>
@@ -167,7 +169,7 @@
 
         </div>
 
-        <main ng-view></main>
+        <main style="height:716px;" ng-view></main>
 
     </div><!--/#content.span10-->
 

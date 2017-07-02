@@ -465,17 +465,17 @@ a.brand span {
 	border-bottom: 1px solid #2D89EF;
 }
 
-.nav-tabs.nav-stacked  > li.active > a:hover,
-.nav-tabs.nav-stacked  > li > ul > li.active > a:hover {
+.nav-tabs.nav-stacked ,
+.nav-tabs.nav-stacked  > li > ul >{
   	background: #2D89EF;
-	color: #fff;
+	color: #3d3d3d;
 	border: none;
 	border-bottom: 1px solid #2D89EF;
 }
 
 .nav-tabs.nav-stacked  > li.active > ul {
 	padding: 5px 0px;
-  	color: #3b3b41;
+  	color: #3d3d3d;
   	background: #fff;
 }
 
