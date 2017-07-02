@@ -43,6 +43,23 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl : 'orders/vendors.html',
             controller : 'vendorController'
         })
+        .when('/request', {
+            templateUrl : 'stock/request.html',
+            controller : 'requestsController'
+        })
+        .when('/drugBatch', {
+            templateUrl : 'stock/drugBatch.html',
+            controller : 'drugBatchController'
+        })
+        .when('/reports', {
+            templateUrl : 'stock/reports.html',
+            controller : 'reportsController'
+        })
+        .when('/requestManage', {
+            templateUrl : 'stock/requestManage.html',
+            controller : 'requestManageController'
+        })
+
         .otherwise({
         redirectTo : '/home'
     });
