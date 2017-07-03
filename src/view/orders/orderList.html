@@ -1,0 +1,67 @@
+<div class="container-fluid-full">
+    <div class="row-fluid">
+
+        <!-- start: Content -->
+        <div id="content" class="span10">
+            <div class="page-header">
+                <h1>Orders</h1>
+            </div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#!orderList">Orders</a></li>
+                <li role="presentation"><a href="#!requestList">Requested</a></li>
+                <li role="presentation"><a href="#!diliverList">Deliveries</a></li>
+                <li role="presentation"><a href="#!rejectList/">Rejects</a></li>
+            </ul>
+
+            <div class="box-content">
+                <form  ng-submit="sendMessage()">
+                <div class="form-group" >
+
+                    <div class="form-horizontal">
+
+                        <input class="form-control" type="email" placeholder="vendor email" ng-model="vendorEmail">
+                        <button class="btn btn-primary" ng-click="validateVend()"> Place Order </button>
+                    </div>
+
+                </div>
+
+                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                    <thead>
+                    <tr>
+
+                        <th>Drug Name</th>
+                        <th>Drug Type</th>
+                        <th>Quantity</th>
+                        <th>Require Date</th>
+                        <th>Status</th>
+                        <th>Select Order</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr id="orderData" ng-repeat=" orders in order " >
+
+                        <td>{{orders.drugName}}</td>
+                        <td >{{orders.drugType}}</td>
+                        <td>{{orders.requestQuantity}}</td>
+                        <td>{{orders.date}}</td>
+                        <td>
+                            <span class="label label-{{orders.status === 'New' ? 'success' : orders.status === 'reject' ? 'important' : orders.status === 'processing' ? 'warning' : ''}}">{{orders.status}}</span>
+                        </td>
+                        <td class="center">
+                           <input type="checkbox" ng-click="getChecks(orders)"/>
+                        </td>
+                    </tr>
+                            <!--<span class="label label-important">Reject</span>-->
+                            <!--<span class="label label-warning">Processing</span>-->
+
+                    </tbody>
+                </table>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

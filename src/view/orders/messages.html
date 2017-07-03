@@ -1,0 +1,63 @@
+<div class="container-fluid-full">
+    <div class="row-fluid">
+
+        <!-- start: Content -->
+        <div id="content" class="span10">
+\
+            <div class="row-fluid">
+
+                <div class="span11 noMarginLeft">
+
+                    <div class="message dark">
+
+                        <div class="header">
+                            <h1>"Subject"</h1>
+                            <div class="from"><i class="halflings-icon user"></i> <b>User 1</b> / Email</div>
+                            <div class="date"><i class="halflings-icon time"></i> Today, <b>Time</b></div>
+
+                        </div>
+
+                        <div class="content">
+
+                        </div>
+
+                        <div class="attachments">
+
+                            <table class="table table-striped">
+                                <thead>
+                                <th>Drug Name</th>
+                                <th>Drug Type</th>
+                                <th>Quantity</th>
+                                <th>Date</th>
+                                </thead>
+                                <tr ng-repeat="orders in selectOrders">
+                                    <td>{{orders.drugName}}</td>
+                                    <td>{{orders.drugType}}</td>
+                                    <td>{{orders.requestQuantity}}</td>
+                                    <td>{{orders.date}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <label>Email: {{venEmail}}</label>
+
+                        <form class="replyForm">
+
+                            <textarea tabindex="3" class="input-xlarge span12" id="message" name="body" rows="12"
+                                      placeholder="Click here to message" ng-model="message"></textarea>
+
+                            <div class="actions">
+
+                                <button ng-click="sendEmail()" class="btn btn-success">Send message</button>
+                                <a href="#!/orderList" class="btn btn-danger">Cancel </a>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div><!--/#content.span10-->
+</div><!--/fluid-row-->
